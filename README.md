@@ -14,7 +14,7 @@ Alfred 5 中英互译 Workflow，翻译引擎为有道智云。
 
 ## 安装
 
-1. 从 `dist/` 双击 `YetAnotherTranslator-*.alfredworkflow` 安装（或运行 `scripts/install.sh`）
+1. 从 [Releases](https://github.com/AlainOUYANG/YetAnotherAlfredTranslator/releases) 下载 `YetAnotherTranslator-*.alfredworkflow` 双击安装（或克隆本仓库后运行 `scripts/install.sh` 自行构建）
 2. 注册有道智云并创建应用（免费，新用户有体验金）：
    1. 注册账号：https://ai.youdao.com/
    2. 控制台创建「文本翻译」服务
@@ -51,4 +51,8 @@ scripts/build.sh
 scripts/install.sh
 ```
 
-结构：`src/` 为打包内容（`translate.py` Script Filter 入口、`youdao.py` API 客户端（v3 sha256 签名）、`util.py` 检测与缓存、`speak.sh` 发音、`info.plist` 节点图与配置面板）；`tests/` 单测；`scripts/` 构建脚本。
+结构：`src/` 为打包内容（`translate.py` Script Filter 入口、`youdao.py` 翻译 API 客户端（v3 sha256 签名）、`dictapi.py` 词典释义、`util.py` 检测与缓存、`speak.sh` 发音、`info.plist` 节点图与配置面板）；`tests/` 单测；`scripts/` 构建脚本。
+
+## License
+
+[MIT](LICENSE)
