@@ -21,6 +21,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>99999999-9999-9999-9999-999999999999</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>22222222-2222-2222-2222-222222222222</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>22222222-2222-2222-2222-222222222222</key>
 		<array>
 			<dict>
@@ -135,6 +148,37 @@
 			<string>alfred.workflow.trigger.hotkey</string>
 			<key>uid</key>
 			<string>11111111-1111-1111-1111-111111111111</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>16</integer>
+				<key>hotmod</key>
+				<integer>524288</integer>
+				<key>hotstring</key>
+				<string>Y</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>99999999-9999-9999-9999-999999999999</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -373,6 +417,13 @@
 			<integer>40</integer>
 			<key>ypos</key>
 			<integer>40</integer>
+		</dict>
+		<key>99999999-9999-9999-9999-999999999999</key>
+		<dict>
+			<key>xpos</key>
+			<integer>40</integer>
+			<key>ypos</key>
+			<integer>260</integer>
 		</dict>
 		<key>22222222-2222-2222-2222-222222222222</key>
 		<dict>
@@ -613,7 +664,7 @@
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>0.2.0</string>
+	<string>0.2.1</string>
 	<key>webaddress</key>
 	<string></string>
 </dict>
