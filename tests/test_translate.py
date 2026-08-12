@@ -65,11 +65,45 @@ class TestBuildItems(unittest.TestCase):
         self.assertEqual(items[0]["mods"]["cmd"]["variables"]["speak_lang"], "en")
 
 
+class TestDictDefs(unittest.TestCase):
+    DICT_INFO = {
+        "phonetic_us": "rʌn",
+        "phonetic_uk": "rʌn",
+        "defs": ["v. 跑，奔跑；管理，经营", "n. 跑步，赛跑；旅程"],
+    }
+
+    def test_defs_add_one_item_per_pos(self):
+        parsed = youdao.parse_response({"errorCode": "0", "translation": ["跑"]})
+        items = translate.build_items(parsed, "run", ("auto", "zh-CHS"), self.DICT_INFO)
+        titles = [it["title"] for it in items]
+        self.assertIn("v. 跑，奔跑；管理，经营", titles)
+        self.assertIn("n. 跑步，赛跑；旅程", titles)
+
+    def test_phonetic_fallback_from_dict(self):
+        # openapi 已不返回音标，主条目 subtitle 应回退用 jsonapi 的音标
+        parsed = youdao.parse_response({"errorCode": "0", "translation": ["跑"]})
+        items = translate.build_items(parsed, "run", ("auto", "zh-CHS"), self.DICT_INFO)
+        self.assertIn("美: rʌn", items[0]["subtitle"])
+
+    def test_all_items_use_translate_icon(self):
+        parsed = youdao.parse_response(FULL_WORD_RESPONSE)
+        items = translate.build_items(parsed, "hello", ("auto", "zh-CHS"), self.DICT_INFO)
+        for it in items:
+            self.assertEqual(it["icon"]["path"], "icons/translate.png")
+
+
 class TestErrorItem(unittest.TestCase):
     def test_error_item_invalid(self):
         it = translate.error_item("签名校验失败", "请检查密钥")
         self.assertFalse(it["valid"])
         self.assertEqual(it["title"], "签名校验失败")
+
+    def test_error_item_no_warning_icon(self):
+        # 用户要求：不出现黄色三角，统一用翻译图标
+        it = translate.error_item("网络请求失败")
+        self.assertEqual(it["icon"]["path"], "icons/translate.png")
+        for g in translate.guide_items():
+            self.assertEqual(g["icon"]["path"], "icons/translate.png")
 
 
 if __name__ == "__main__":
