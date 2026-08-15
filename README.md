@@ -1,4 +1,6 @@
-# Yet Another Translator
+# Yet Another Alfred Translator
+
+中文 | [English](README.en.md)
 
 Alfred 5 中英互译 Workflow，翻译引擎为有道智云。
 
